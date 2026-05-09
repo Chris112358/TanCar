@@ -31,7 +31,7 @@ export async function getPriceChart(req, res) {
             datasets: [
                 {
                     label: 'Fuel Price per liter',
-                    data: rows.map(row => row.price / row.liters)
+                    data: rows.map(row => Number(row.price) / Number(row.liters))
                 }
             ]
         };
