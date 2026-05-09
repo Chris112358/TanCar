@@ -6,7 +6,7 @@ export async function getPriceChart(req, res) {
 
     try {
         const result = await pool.query(`
-            SELECT price, created_at
+            SELECT price, liters, created_at
             FROM fuel_entries
             WHERE car_id = $1
             ORDER BY created_at DESC
