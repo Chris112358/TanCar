@@ -17,13 +17,13 @@ import PriceChart from '../components/charts/PriceChart.vue';
 <div class="graphs">
 
   <div class="graph">
-    <h2>Fuel Consumption Graph</h2>
+    <h2>Fuel Consumption per 100km</h2>
     <FuelChart />
   </div>
    
 
   <div class="graph">
-    <h2>Fuel Price Graph</h2>
+    <h2>Fuel Price per Liter</h2>
     <PriceChart />
   </div>
 </div>

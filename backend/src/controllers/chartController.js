@@ -30,8 +30,8 @@ export async function getPriceChart(req, res) {
 
             datasets: [
                 {
-                    label: 'Fuel Price',
-                    data: rows.map(row => row.price)
+                    label: 'Fuel Price per liter',
+                    data: rows.map(row => row.price / row.liters)
                 }
             ]
         };
