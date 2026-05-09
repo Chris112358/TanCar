@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: tancar-db
+    restart: always
+    environment:
+      POSTGRES_USER: tancar-user
+      POSTGRES_PASSWORD: tancar-pass
+      POSTGRES_DB: tancar
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: #./backend
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: tancar-app
+    restart: no #always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: tancar-user
+      DB_PASSWORD: tancar-pass
+      DB_NAME: tancar
+      DB_PORT: 5432
+
+volumes:
+  pgdata:
