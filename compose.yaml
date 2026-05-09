@@ -21,7 +21,7 @@ services:
     container_name: tancar-app
     restart: no #always
     ports:
-      - "3000:3000"
+      - "3933:3000"
     depends_on:
       - db
     environment:
